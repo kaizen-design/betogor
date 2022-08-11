@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "text": "О компании",
+    "url": "company/",
+    "submenu": []
+  },
+  {
+    "id": 2,
+    "text": "Продукция",
+    "url": "production/",
+    "submenu": [
+      {
+        "id": 3,
+        "text": "Бетон",
+        "url": "production/"
+      },
+      {
+        "id": 4,
+        "text": "Песок / Щебень",
+        "url": "production/"
+      },
+      {
+        "id": 5,
+        "text": "Раствор",
+        "url": "production/"
+      },
+      {
+        "id": 6,
+        "text": "ЖБИ",
+        "url": "production/"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "Лаборатория",
+    "url": "lab/",
+    "submenu": []
+  },
+  {
+    "id": 8,
+    "text": "Доставка",
+    "url": "delivery/",
+    "submenu": []
+  },
+  {
+    "id": 9,
+    "text": "Контакты",
+    "url": "contacts/",
+    "submenu": []
+  }
+]

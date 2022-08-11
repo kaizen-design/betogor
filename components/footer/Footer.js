@@ -1,3 +1,11 @@
+import Link from "next/link";
+import sitemap from '../../sitemap.json';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faVk,
+  faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+
 const Footer = () => {
   return (
     <footer className="site-footer">  
@@ -5,50 +13,32 @@ const Footer = () => {
         <div className="row">         
           <div className="col-xs-6 col-sm-4 col-md-3">
             <ul className="menu">
-              <li>
-                <a className="slide-effect" href="company/">
-                  <span data-hover="О компании">О компании</span>
-                </a>
-              </li>
-              <li>
-                <a className="slide-effect" href="lab/">
-                  <span data-hover="Лаборатория">Лаборатория</span>
-                </a>
-              </li>
-              <li>
-                <a className="slide-effect" href="delivery/">
-                  <span data-hover="Доставка">Доставка</span>
-                </a>
-              </li>
-              <li>
-                <a className="slide-effect" href="contacts/">
-                  <span data-hover="Контакты">Контакты</span>
-                </a>
-              </li>
+              {sitemap.map(item => {
+                return (
+                  <li key={item.id}>
+                    <Link href={item.url}>
+                      <a className="slide-effect">
+                        <span data-hover={item.text}>{item.text}</span>
+                      </a>
+                    </Link>                    
+                  </li>
+                )
+              })}              
             </ul>
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3">
             <ul className="menu">
-              <li>
-                <a href="production/#table-section-01" className="slide-effect">
-                  <span data-hover="Бетон">Бетон</span>
-                </a>
-              </li>
-              {/* <li>
-                <a href="production/" className="slide-effect">
-                  <span data-hover="Песок / Щебень">Песок / Щебень</span>
-                </a>
-              </li> */}
-              <li>
-                <a href="production/#table-section-02" className="slide-effect">
-                  <span data-hover="Раствор">Раствор</span>
-                </a>
-              </li>
-              <li>
-                <a href="production/#table-section-04" className="slide-effect">
-                  <span data-hover="ЖБИ">ЖБИ</span>
-                </a>
-              </li>
+              {sitemap.filter(item => item.text === 'Продукция').map(({ submenu }) => {                
+                return submenu.map(item => {
+                  return <li key={item.id}>
+                    <Link href={item.url}>
+                      <a className="slide-effect">
+                        <span data-hover={item.text}>{item.text}</span>
+                      </a>  
+                    </Link>                    
+                  </li>
+                })                
+              })}              
             </ul>
           </div>
           <div className="col-xs-12 col-sm-4 col-md-3">
@@ -68,8 +58,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                  <a href="https://vk.com/skbetogor" target="_blank" rel="noreferrer" style={{ marginRight: '10px' }}><i className="fab fa-2x fa-vk"></i></a>
-                  <a href="https://www.instagram.com/skbetogor69/" target="_blank" rel="noreferrer"><i className="fab fa-2x fa-instagram"></i></a>
+                  <a href="https://vk.com/skbetogor" target="_blank" rel="noreferrer" style={{ marginRight: '10px' }}>
+                    <FontAwesomeIcon icon={faVk} size="2x" />
+                  </a>
+                  <a href="https://www.instagram.com/skbetogor69/" target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                  </a>
               </li>
             </ul>
           </div>
