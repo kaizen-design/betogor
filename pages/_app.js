@@ -12,8 +12,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <PushyMenu />
-      <div id="main-container" className="page-wrap">
-        <Navbar />
+      <div id="main-container" className="page-wrap">        
         <Component {...pageProps} />
         <Footer />
       </div>  
