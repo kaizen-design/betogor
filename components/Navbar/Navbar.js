@@ -1,8 +1,24 @@
 
 
 //import Logo from './images/logo.png';
+import { useEffect } from "react";
 
 const Navbar = () => {
+  useEffect(() => {
+    function navbarToggle() {
+      const topbar = document.getElementsByClassName('topbar')[0];
+      if (window.pageYOffset > 0) {
+        topbar.classList.add('scrolled',  'bg-primary');
+      } else {
+        topbar.classList.remove('scrolled',  'bg-primary');
+      }
+    }    
+    navbarToggle();
+    window.addEventListener("scroll", (event) => {
+      navbarToggle();     
+    }, true);
+  }, []);
+
   return (
     <nav className="topbar">
       <div className="container-fluid">
