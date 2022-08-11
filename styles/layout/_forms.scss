@@ -1,0 +1,86 @@
+//  Safari rounded corners fix
+input, textarea, select {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+//  CHROME AUTOCOMPLETE ISSUE FIX
+@-webkit-keyframes autofill {
+  to {
+    color: #fff;
+    background: transparent;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+//  FORMS
+.contact-form {
+	.form-group {
+
+	}
+	h2 {
+		margin-bottom: 20px;
+	}
+}
+
+fieldset {
+	border: none;
+  margin: 0;
+  padding: 0;
+}
+.form-group {
+	margin-bottom: 30px;
+	position: relative;
+	textarea {
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		resize: vertical;
+	}
+	.validation {
+		position: absolute;
+		right: 20px;
+		top: 12.5px;		
+		font-size: 14px;
+		color: $color-base-blue;
+	}
+}
+.form-control {
+	display: block;
+	width: 100%;
+	border: 1px solid #f15850;
+	background: #f15850;
+	padding: 11.5px 20px;
+	color: #fff;
+	transition: all .3s ease;
+	&:focus {
+		background: transparent;
+	}
+	&:-webkit-input-placeholder { 
+	  color: #fff;
+	}
+	&:-moz-placeholder { 
+	  color: #fff;
+	}
+	&:-ms-input-placeholder { 
+	  color: #fff;
+	}
+	&:-moz-placeholder { 
+	  color: #fff;
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	
+}
+
+@media only screen and (min-width: 62em) {
+	
+}
+
+@media only screen and (min-width: 75em) {
+
+}

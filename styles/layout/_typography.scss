@@ -1,0 +1,299 @@
+//  TYPOGRAPHY
+* {
+  box-sizing: border-box;
+}
+html {
+
+}
+body {
+  font-family: $base-font-family;   
+  line-height: 30px;
+  color: $base-font-color;
+  background: $color-base-gray;
+}
+h1 {
+  font-family: 'Circe Extra', sans-serif;
+  font-size: 34px;
+  line-height: 44px;
+}
+h2 {
+  font-family: 'Circe Extra', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 33px;
+}
+h3, h4 {
+  font-weight: bold;  
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+h6 {
+  font-family: 'Circe Extra', sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+}
+p {
+  margin-bottom: 2rem;
+  line-height: 32px;  
+}
+hr {
+  margin: 40px 0;
+  border: none;
+  height: 1px;
+  background-color: $color-base-dark-gray;
+}
+small {
+  font-size: 14px;
+}
+a {
+  color: $color-base-red;
+  text-decoration: none;  
+  transition: color .3s ease;
+  &:hover {
+    color: darken($color-base-red, 15%);
+  }
+}
+img {
+  max-width: 100%;
+}
+
+//  CHECK LIST
+.check-list { 
+  li {
+    margin-bottom: 20px;
+  }
+  .check-icon {
+    padding-left: 40px;
+    position: relative; 
+    text-align: left;
+    &:before {
+      content: '';
+      width: 24px;
+      height: 24px;     
+      position: absolute;     
+      background: url('../../public/images//check-icon-red.png') no-repeat center center;
+      left: 0;
+      top: 2px;
+    }       
+  }
+  &.size-lg {
+    .check-icon {
+      font-size: 18px;
+      line-height: 44px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:before {
+        left: 0;
+        top: 9px;
+      }
+    }
+  }
+  &.white {
+    li {
+      &:before {
+        background: url('../../public/images//check-icon-white.png') no-repeat center center;
+      }     
+    }   
+  }
+}
+
+//  LINK
+.readmore-link {
+  text-decoration: none;  
+  position: relative;
+  transition: all .3s cubic-bezier(.2, 0, 0, 1);
+  z-index: 1;  
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;  
+  &:after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background-color: $color-base-blue;
+    right: 1.25rem;
+    left: 1.25rem;    
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: #fff;    
+    &:after {
+      right: 0;
+      left: 0;
+      height: 100%;
+    }
+  }
+
+  &.color-red {
+    color: $color-base-red;
+    &:after {
+      background-color: $color-base-red;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &.shifted-left {
+    margin-left: -1.25rem;
+  }
+
+}
+
+//  NUMBERED LIST
+.numbered-list {
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  li {
+    margin-bottom: 53px;
+    &:before {
+      content: counter(li,decimal);
+      counter-increment: li;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;     
+      background: #fff;
+      color: $color-base-red;
+      font-family: 'Circe Extra', sans-serif;
+      line-height: 60px;
+      text-align: center;     
+      display: block;     
+      margin-bottom: 23px;
+    }
+  }
+}
+
+//  TABLES
+.table {
+  width: 100%;
+  tr {
+    td {
+      padding: 11px 0;
+    }
+  }
+  thead {
+    tr {        
+      td {
+        color: $color-base-dark-gray;
+        font-weight: bold;
+        border-bottom: 3px solid $color-base-red;
+        padding: 10px 0 30px;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:first-child {
+        td {
+          padding-top: 32px;
+        }
+      }
+      td {
+        
+      }
+    }
+  }
+
+  &.double-column {
+    tr {
+      td {
+        width: 50%;
+      }
+    }
+  }  
+}
+
+//  768px
+@media only screen and (min-width: 48em) {  
+  
+  .check-list {
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  h1 {    
+    font-size: 44px;
+    line-height: 54px;
+  }
+  h2 {
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 40px;
+  } 
+  h3, h4 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 33px;
+  }
+  p {
+    &.lead {
+      font-size: 24px;
+      line-height: 40px;
+    }
+  }
+  hr {
+    margin: 70px 0;
+  }
+
+}
+
+//  992px
+@media only screen and (min-width: 62em) {
+  
+  .check-list {
+    &.size-lg {
+      .check-icon {
+        font-size: 20px;        
+      }
+    }
+  }
+  
+}
+
+//  1200px
+@media only screen and (min-width: 75em) {
+
+  body {
+    font-size: 18px;  
+  }
+
+  h1 {    
+    font-size: 54px;
+    line-height: 66px;
+  }
+  h2 {  
+    font-size: 40px;
+    line-height: 46px;    
+  }
+  h3, h4 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+  h6 {    
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .check-list {
+    &.size-lg {
+      .check-icon {
+        font-size: 24px;
+        line-height: 46px;
+      }
+    }
+  }
+
+}

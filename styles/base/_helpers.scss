@@ -1,0 +1,145 @@
+@mixin transition($sec)
+{
+	-webkit-transition: all $sec;
+	-moz-transition: all $sec;
+	-ms-transition: all $sec;
+	-o-transition: all $sec;
+	transition: all $sec;
+}
+
+@mixin rotate($deg, $tX, $tY, $sX, $sY)
+{	
+	-moz-transform: scale(1) rotate($deg) translate($tX, $tY) skew($sX, $sY);
+	-webkit-transform: scale(1) rotate($deg) translate($tX, $tY) skew($sX, $sY);
+	-o-transform: scale(1) rotate($deg) translate($tX, $tY) skew($sX, $sY);
+	-ms-transform: scale(1) rotate($deg) translate($tX, $tY) skew($sX, $sY);
+	transform: scale(1) rotate($deg) translate($tX, $tY) skew($sX, $sY);
+}
+
+@mixin bg-cover($img_url: null) {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	@if $img_url != null {
+		background-image: url($img_url);
+	}
+}
+
+@mixin bg-contain($img_url: null) {
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	@if $img_url != null {
+		background-image: url($img_url);
+	}
+}
+
+@mixin bg-hundred($img_url: null) {
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	@if $img_url != null {
+		background-image: url($img_url);
+	}
+}
+
+@mixin vertical-parent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin vertical-align($top: 50%, $translateY: 50%) {
+	position: absolute;
+	top: $top;
+	-webkit-transform: translateY(-$translateY);
+	-moz-transform: translateY(-$translateY);
+	-ms-transform: translateY(-$translateY);
+	-o-transform: translateY(-$translateY);
+	transform: translateY(-$translateY);
+}
+
+@mixin horizontal-align($left: 50%, $translateX: 50%) {
+	position: absolute;
+	left: $left;
+	-webkit-transform: translateX(-$translateX);
+	-moz-transform: translateX(-$translateX);
+	-ms-transform: translateX(-$translateX);
+	-o-transform: translateX(-$translateX);
+	transform: translateX(-$translateX);
+}
+
+@mixin vertical-horizontal-align($top: 50%, $translateY: 50%, $left: 50%, $translateX: 50%) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	-webkit-transform: translate(-$translateY, -$translateX);
+	-moz-transform: translate(-$translateY, -$translateX);
+	-ms-transform: translate(-$translateY, -$translateX);
+	-o-transform: translate(-$translateY, -$translateX);
+	transform: translate(-$translateY, -$translateX);
+}
+
+@mixin hover_brighten($color: #000, $opacity: 0.5, $transition: 0.5s) {
+	position: relative;
+	@include transition($transition);
+	&:hover:after {
+		opacity: 1;
+	}
+	&:after {
+		content: " ";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba($color, $opacity);
+		opacity: 0;
+		@include transition(0.6s);
+	}
+}
+
+@mixin object-fit($val: cover) {
+	object-fit: $val;	
+	-webkit-object-fit: $val;	
+	-moz-object-fit: $val;	
+	-ms-object-fit: $val;	
+	-o-object-fit: $val;	
+	/** available values: fill, cover, contain, unset, initial, inherit, scale-down, none**/			
+}
+
+@mixin object-position($posX: center, $posY: center) {
+	object-position: $posX $posY;
+	-webkit-object-position: $posX $posY;
+	-moz-object-position: $posX $posY;
+	-ms-object-position: $posX $posY;
+	-o-object-position: $posX $posY;
+}
+
+@mixin image-cover-center {
+	object-fit: cover;	
+	-webkit-object-fit: cover;	
+	-moz-object-fit: cover;	
+	-ms-object-fit: cover;	
+	-o-object-fit: cover;				
+
+	object-position: center center;
+	-webkit-object-position: center center;
+	-moz-object-position: center center;
+	-ms-object-position: center center;
+	-o-object-position: center center;
+}
+
+.v-align-row {
+  display: table;
+  width: 100%;
+  height: 100%;
+  .v-align-cell {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+  }
+}

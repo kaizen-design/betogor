@@ -1,0 +1,289 @@
+//  MAIN
+main {
+	z-index: 10;
+	.sidebar {
+		background: #fff;				
+		padding: 133px 110px 70px 1rem;
+		margin-top: -60px;
+		&:before {			
+			content: '';
+			background: #fff;
+			position: absolute;
+			left: 0;
+			top: -60px;
+			bottom: 0;			
+			right: 66.666%;
+  		z-index: -1;			
+		}	
+	}
+	.content-section {
+		padding: 50px 1rem;						
+	}	
+}
+
+//  SIDEBAR
+.sidebar {
+	.is-affixed {
+		.affix-inner {
+			&[style^="position: relative"] {
+				margin-top: -133px;
+			}
+		}
+	}
+}
+
+//  SIDE NAV
+.side-nav {
+	li {
+		margin-bottom: 13px;
+		&.active {
+			font-family: 'Circe Extra', sans-serif;
+			a {
+				color: $link-color;
+			}
+		}
+		a {
+			color: $color-base-blue;
+			&:hover {
+				color: $link-hover-color;
+			}
+		}
+		&.sub-menu-item {
+			font-size: 16px;
+			&.active {
+				a {
+					color: $link-color;
+				}
+			}
+			a {
+				color: $color-base-dark-gray;
+				&:hover {
+					color: $link-hover-color;
+				}	
+			}			
+		}
+	}
+}
+
+//  CONTENT SECTION
+.content-section {
+	.image-card {		
+		margin: 30px -1rem;
+		& > img {
+			display: block;
+			width: 100%;
+		}
+		.card-caption {
+			display: block;
+			padding: 1rem;			
+			font-size: 14px;
+		}
+	}
+	.scroll-anchor {
+		top: -140px;
+		position: relative;
+	}
+}
+
+//  CTA SECTION
+.cta-section {
+	background: #d5dbde;
+	padding: 50px 0;
+	text-align: center;
+	.phone-number {
+		font-size: 26px;
+	  color: $color-base-red;
+	  display: block;
+	  line-height: 1;	
+	  white-space: nowrap;  
+	}
+}
+
+//  AFFIX
+.affix{
+   will-change: min-height;
+}
+.affix-inner{
+  transform: translate(0, 0); 
+  transform: translate3d(0, 0, 0);
+  will-change: position, transform;
+}
+
+//  MAP SECTION
+.map-section {
+	background: $color-base-gray;
+	height: 320px;
+	width: 100%;		
+}
+
+//  TABLE SECTION
+.table-section {
+	padding-bottom: 35px;	
+	overflow-x: auto;	
+}
+
+//  PRICE TABLE
+.price-table { 
+	margin-bottom: 35px;
+  tr {
+    td {
+      border-bottom: 1px solid #32404d;
+      width: 20%;
+      white-space: nowrap;
+    }
+  }
+  tbody {    
+    tr {
+      &:first-child {
+        td {
+          padding-top: 11px;
+        }
+      }      
+      &:not(.sub-heading) {
+        td {
+          padding: 11px 1rem 9px;
+          background-color: transparent;
+          transition: background-color .3s ease-out;
+        }  
+        &:hover {
+          td {
+            background-color: #32404d;
+          }
+        }
+      }      
+    }
+  }
+  .sub-heading {
+    h4 {
+      margin: 1.5rem 0;      
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {	
+
+}
+
+@media only screen and (max-width: 991px) {
+	
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	
+
+}
+
+//  768px
+@media only screen and (min-width: 48em) {
+
+	main {
+		.content-section {
+			
+		}		
+	}
+
+	.content-section {
+		.image-card {	
+			margin: 40px 0;		
+			.card-caption {
+				padding: 20px 40px;
+				font-size: 16px;
+			}
+		}
+	}
+
+	.cta-section {		
+		padding: 70px 0;
+		text-align: inherit;
+		.phone-number {
+			font-size: 67px;
+			margin-top: 20px;
+		}
+	}
+
+	.map-section {
+		height: 400px;
+	}
+
+}
+
+//  992px
+@media only screen and (min-width: 62em) {
+		
+	main {		
+		.content-section {
+			padding: 70px 1rem 70px 70px;
+		}		
+	}
+
+	.content-section {
+		.image-card {
+			margin: 40px 0px 40px -70px;
+			.card-caption {
+				padding: 40px 70px;
+			}
+		}
+	}
+
+	.cta-section {		
+		.phone-number {
+			font-size: 90px;		  
+		}
+	}
+
+	.map-section {
+		height: 500px;
+	}
+
+}
+
+//  1200px
+@media only screen and (min-width: 75em) {
+
+	main {
+		.sidebar {
+			padding-top: 173px;
+			.is-affixed {
+				.affix-inner {
+					&[style^="position: relative"] {
+						margin-top: -173px;
+					}
+				}
+			}
+			&:before {
+				right: calc(66.666% - 1rem);
+			}
+		}	
+		.content-section {
+			padding: 117px 1rem 70px 126px;			
+		}		
+	}
+
+	.content-section {
+		.image-card {
+			margin: 70px 0px 70px -126px;
+			.card-caption {
+				padding: 30px 70px;
+  			margin-top: -45px;
+			  position: relative;			  
+			  margin-left: 126px;
+			  font-size: 18px;
+			}
+		}	
+	}
+
+	.cta-section {		
+		padding: 114px 0;
+		.phone-number {
+			font-size: 108px;		  
+			margin-top: 54px;
+		}
+	}
+
+	.map-section {
+		height: 600px;
+	}
+	
+}
