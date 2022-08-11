@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import sitemap from '../../sitemap.json';
+import sitemap from '../sitemap.json';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faVk,
@@ -54,10 +54,10 @@ const Navbar = () => {
         </ul>
         <span className="contact-phone">+7 (4822) 302—888</span>
         <a href="https://vk.com/skbetogor" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#fff' }}>
-          <FontAwesomeIcon icon={faVk} />
+          <FontAwesomeIcon icon={faVk} size="lg" />
         </a>
         <a href="https://www.instagram.com/skbetogor69/" target="_blank" rel="noreferrer" style={{ color: '#fff' }}>
-          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faInstagram} size="lg" />
         </a>
         <a className="navicon hamburger-icon pushy-link" href="#">Меню</a>        
       </div>      
@@ -65,10 +65,10 @@ const Navbar = () => {
   )
 }
 
-const MessageBar = () => {
+const MessageBar = ( props ) => {
   return (
-    <div className="message-bar">
-      Доставка продукции осуществляется <strong>только</strong> на территории Тверской области.
+    <div className="message-bar" dangerouslySetInnerHTML={{ __html: props.text }}>      
+      {/* Доставка продукции осуществляется <strong>только</strong> на территории Тверской области. */}
     </div>
   )
 }

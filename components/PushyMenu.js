@@ -1,5 +1,5 @@
 import Link from "next/link";
-import sitemap from '../../sitemap.json';
+import sitemap from '../sitemap.json';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faVk,

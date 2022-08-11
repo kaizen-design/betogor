@@ -1,5 +1,5 @@
 import Link from "next/link";
-import sitemap from '../../sitemap.json';
+import sitemap from '../sitemap.json';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faVk,
@@ -13,31 +13,17 @@ const Footer = () => {
         <div className="row">         
           <div className="col-xs-6 col-sm-4 col-md-3">
             <ul className="menu">
-              {sitemap.map(item => {
-                return (
-                  <li key={item.id}>
-                    <Link href={item.url}>
-                      <a className="slide-effect">
-                        <span data-hover={item.text}>{item.text}</span>
-                      </a>
-                    </Link>                    
-                  </li>
-                )
-              })}              
+              {sitemap.map(
+                item => <MenuItem key={item.id} item={item} />
+              )}              
             </ul>
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3">
             <ul className="menu">
               {sitemap.filter(item => item.text === 'Продукция').map(({ submenu }) => {                
-                return submenu.map(item => {
-                  return <li key={item.id}>
-                    <Link href={item.url}>
-                      <a className="slide-effect">
-                        <span data-hover={item.text}>{item.text}</span>
-                      </a>  
-                    </Link>                    
-                  </li>
-                })                
+                return submenu.map(
+                  item => <MenuItem key={item.id} item={item} />
+                )                
               })}              
             </ul>
           </div>
@@ -59,10 +45,10 @@ const Footer = () => {
               </li>
               <li>
                   <a href="https://vk.com/skbetogor" target="_blank" rel="noreferrer" style={{ marginRight: '10px' }}>
-                    <FontAwesomeIcon icon={faVk} size="2x" />
+                    <FontAwesomeIcon icon={faVk} size="lg" />
                   </a>
                   <a href="https://www.instagram.com/skbetogor69/" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                    <FontAwesomeIcon icon={faInstagram} size="lg" />
                   </a>
               </li>
             </ul>
@@ -77,6 +63,18 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+  )
+}
+
+const MenuItem = ({ item }) => {
+  return (
+    <li>
+      <Link href={item.url}>
+        <a className="slide-effect">
+          <span data-hover={item.text}>{item.text}</span>
+        </a>  
+      </Link>                    
+    </li>
   )
 }
 

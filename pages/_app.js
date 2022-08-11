@@ -4,9 +4,9 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import Navbar from '../components/Nav/Navbar';
-import PushyMenu from '../components/Nav/PushyMenu';
-import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar';
+import PushyMenu from '../components/PushyMenu';
+import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {  
   return (
