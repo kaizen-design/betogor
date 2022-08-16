@@ -4,7 +4,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import Navbar from '../components/Navbar';
+//import Navbar from '../components/Navbar';
 import PushyMenu from '../components/PushyMenu';
 import Footer from '../components/Footer';
 

@@ -1,6 +1,21 @@
 import Link from "next/link";
 
 const AboutUs = ( props ) => {
+  const newsSwiper = new Swiper ('#news-slider .swiper-container', {    
+    slidesPerView: 1,
+    spaceBetween: 30,    
+    loop: true,
+    autoHeight: true,
+    navigation: {
+      nextEl: '#news-slider .swiper-button-next',
+      prevEl: '#news-slider .swiper-button-prev',
+    },
+    pagination: {
+      el: '#news-slider .swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
   return (
     <section className="about-section position-relative"> 
       <div className="container">
@@ -21,65 +36,16 @@ const AboutUs = ( props ) => {
               </div>
               
               <div className="swiper-container">                
-                <div className="swiper-wrapper">                  
-                  <div className="swiper-slide">
-                    <article className="post-card">
-                      <h6 className="post-title">Скидка 100₽ на любые марки юридическим лицам (от 100 кубов), и 200₽ физическим лицам (от 30 кубов).</h6>
-                      <span className="post-date">Акция действует до 30.06.2020</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/blog-thumbnail.jpg" alt="" />
+                <div className="swiper-wrapper">   
+                  {posts.map(post => {
+                    return (
+                      <div key={post.id} className="swiper-slide">
+                        <PostCard post={post} />
                       </div>
-                    </article>
-                  </div>
-                  <div className="swiper-slide">
-                    <article className="post-card">               
-                      <h6 className="post-title">ООО &quote;ОлимпСитиСтрой&quote;</h6>
-                      <span className="post-date">Строительство суворовского военного училища г.&nbsp;Тверь</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/clients/client01.jpg" alt="" />
-                      </div>
-                    </article>
-                  </div>
-                  <div className="swiper-slide">
-                    <article className="post-card">               
-                      <h6 className="post-title">ООО &quote;Агропромстрой&quote;</h6>
-                      <span className="post-date">Строительство свинокомплекса г.&nbsp;Ржев</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/clients/client02.jpg" alt="" />
-                      </div>
-                    </article>
-                  </div>
-                  <div className="swiper-slide">
-                    <article className="post-card">               
-                      <h6 className="post-title">ООО &quote;Микро ДСК&quote;</h6>
-                      <span className="post-date">Плита жилого дома, микрорайон Южный</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/clients/client03.jpg" alt="" />
-                      </div>
-                    </article>
-                  </div>
-                  <div className="swiper-slide">
-                    <article className="post-card">               
-                      <h6 className="post-title">ООО &quote;Развитие&quote;</h6>
-                      <span className="post-date">Фундаментная плита здания</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/clients/client04.jpg" alt="" />
-                      </div>
-                    </article>
-                  </div>
-                  <div className="swiper-slide">
-                    <article className="post-card">               
-                      <h6 className="post-title">ООО &quote;СтройКомплексМ&quote;</h6>
-                      <span className="post-date">Областной военкомат</span>
-                      <div className="post-img hvr-float">
-                        <img src="/tmp/clients/client05.jpg" alt="" />
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                
+                    )
+                  })}
+                </div>                
                 <div className="swiper-pagination light"></div>
-
               </div>
               
             </div>
@@ -102,10 +68,55 @@ const AboutUs = ( props ) => {
   )
 }
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
-    <></>
+    <article className="post-card">
+      <h6 className="post-title">{post.title}</h6>
+      <span className="post-date">{post.date}</span>
+      <div className="post-img hvr-float">
+        <img src={post.imageUrl} alt={post.title} />
+      </div>
+    </article>
   )
 }
+
+const posts = [
+  {
+    id: 1,
+    title: 'Скидка 100₽ на любые марки юридическим лицам (от 100 кубов), и 200₽ физическим лицам (от 30 кубов).',
+    date: 'Акция действует до 30.06.2020',
+    imageUrl: '/tmp/blog-thumbnail.jpg'
+  },
+  {
+    id: 2,
+    title: 'ООО "ОлимпСитиСтрой"',
+    date: 'Строительство суворовского военного училища',
+    imageUrl: '/tmp/clients/client01.jpg'
+  },
+  {
+    id: 3,
+    title: 'ООО "Агропромстрой"',
+    date: 'Строительство свинокомплекса, Ржев',
+    imageUrl: '/tmp/clients/client02.jpg'
+  },
+  {
+    id: 4,
+    title: 'ООО "Микро ДСК"',
+    date: 'Плита жилого дома, микрорайон Южный',
+    imageUrl: '/tmp/clients/client03.jpg'
+  },
+  {
+    id: 5,
+    title: 'ООО "Развитие"',
+    date: 'Фундаментная плита здания',
+    imageUrl: '/tmp/clients/client04.jpg'
+  },
+  {
+    id: 6,
+    title: 'ООО "СтройКомплексМ"',
+    date: 'Областной военкомат',
+    imageUrl: '/tmp/clients/client05.jpg'
+  }
+]
 
 export default AboutUs;

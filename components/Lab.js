@@ -1,30 +1,27 @@
 import Link from "next/link";
-import { useEffect } from "react";
 
 const Lab = ( props ) => {  
-  useEffect(() => {
-    const labSwiper = new Swiper ('#lab-slider .swiper-container', {          
-      slidesPerView: 2,
-      spaceBetween: 30,    
-      loop: true,
-      navigation: {
-        nextEl: '#lab-slider .swiper-button-next',
-        prevEl: '#lab-slider .swiper-button-prev',
-      },
-      pagination: {
-        el: '#lab-slider .swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      },
-      preloadImages: false,    
-      lazy: true,    
-      breakpoints: {            
-        480: {
-          slidesPerView: 1
-        }
+  const labSwiper = new Swiper ('#lab-slider .swiper-container', {          
+    slidesPerView: 2,
+    spaceBetween: 30,    
+    loop: true,
+    navigation: {
+      nextEl: '#lab-slider .swiper-button-next',
+      prevEl: '#lab-slider .swiper-button-prev',
+    },
+    pagination: {
+      el: '#lab-slider .swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    preloadImages: false,    
+    lazy: true,    
+    breakpoints: {            
+      480: {
+        slidesPerView: 1
       }
-    });
-  }, []);  
+    }
+  });  
     
   return (
     <section className="lab-section"> 

@@ -7,8 +7,9 @@ import {
   faVk,
   faInstagram
 } from "@fortawesome/free-brands-svg-icons";
+import { useRouter } from 'next/router';
 
-const Navbar = () => {
+const Navbar = ( props ) => {
   useEffect(() => {
     const navbarToggle = () => {
       const topbar = document.getElementsByClassName('topbar')[0];
@@ -20,18 +21,37 @@ const Navbar = () => {
     window.addEventListener('scroll', navbarToggle, true);
   }, []);
 
+  const router = useRouter();
+  console.log(router);
+
   return (
     <nav className="topbar">
       <div className="container-fluid">
-        <Link href="/">
-          <a className="logo">
-            <img src="/images/logo.png" alt="Строительный комбинат «Бетогор»" />              
-          </a>
-        </Link>  
+        {
+          props.isHome ? (            
+            <div className="logo">
+              <img src="/images/logo.png" alt="Строительный комбинат «Бетогор»" />              
+            </div>            
+          ) : (
+            <Link href="/">
+              <a className="logo">
+                <img src="/images/logo.png" alt="Строительный комбинат «Бетогор»" />              
+              </a>
+            </Link> 
+          )
+        }
+         
         <ul className="nav">
           {sitemap.map(item => {
+            let itemClassNames = [];
+            if (router.pathname === item.url) {
+              itemClassNames.push('active');
+            }
+            if (item.submenu.length) {
+              itemClassNames.push('has-dropdown');              
+            }            
             return (
-              <li key={item.id} className={item.submenu.length ? 'has-dropdown' : ''}>
+              <li key={item.id} className={itemClassNames.join(' ')}>
                 <Link href={item.url}>
                   <a>{item.text}</a>
                 </Link>                

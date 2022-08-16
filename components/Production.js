@@ -53,21 +53,21 @@ const productionItems = [
     title: 'Бетон (прайс)',
     imageUrl: '/tmp/production/card01.jpg',
     url: 'production/#table-section-01',
-    price: 'от <b>4 500</b> руб/м<sup>3</sup>'
+    price: 'от <b>4 500</b> <small>&#8381;</small>/м<sup>3</sup>'
   },
   {
     id: 2,
     title: 'Пескобетон (прайс)',
     imageUrl: '/tmp/production/card06.jpg',
     url: 'production/#table-section-03',
-    price: 'от <b>3 950</b> руб/м<sup>3</sup>'
+    price: 'от <b>3 950</b> <small>&#8381;</small>/м<sup>3</sup>'
   },
   {
     id: 3,
     title: 'Цементный раствор',
     imageUrl: '/tmp/production/card03.jpg',
     url: 'production/#table-section-02',
-    price: 'от <b>4 050</b> руб/м<sup>3</sup>'
+    price: 'от <b>4 050</b> <small>&#8381;</small>/м<sup>3</sup>'
   },
   {
     id: 4,
