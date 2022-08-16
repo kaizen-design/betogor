@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from 'next/router';
 
-const Navbar = ( props ) => {
+const Navbar = () => {
   useEffect(() => {
     const navbarToggle = () => {
       const topbar = document.getElementsByClassName('topbar')[0];
@@ -22,13 +22,13 @@ const Navbar = ( props ) => {
   }, []);
 
   const router = useRouter();
-  console.log(router);
+  //console.log(router);
 
   return (
     <nav className="topbar">
       <div className="container-fluid">
         {
-          props.isHome ? (            
+          router.pathname === '/' ? (            
             <div className="logo">
               <img src="/images/logo.png" alt="Строительный комбинат «Бетогор»" />              
             </div>            

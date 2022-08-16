@@ -1,21 +1,24 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
 const AboutUs = ( props ) => {
-  const newsSwiper = new Swiper ('#news-slider .swiper-container', {    
-    slidesPerView: 1,
-    spaceBetween: 30,    
-    loop: true,
-    autoHeight: true,
-    navigation: {
-      nextEl: '#news-slider .swiper-button-next',
-      prevEl: '#news-slider .swiper-button-prev',
-    },
-    pagination: {
-      el: '#news-slider .swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  useEffect(() => {
+    const newsSwiper = new Swiper('#news-slider .swiper-container', {    
+      slidesPerView: 1,
+      spaceBetween: 30,    
+      loop: true,
+      autoHeight: true,
+      navigation: {
+        nextEl: '#news-slider .swiper-button-next',
+        prevEl: '#news-slider .swiper-button-prev',
+      },
+      pagination: {
+        el: '#news-slider .swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }, []);  
   return (
     <section className="about-section position-relative"> 
       <div className="container">

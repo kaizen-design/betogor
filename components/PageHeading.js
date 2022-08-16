@@ -1,4 +1,4 @@
-const PageHeading = (props) => {
+const PageHeading = ( props ) => {
   return (
     <div className="page-heading">
       <div className="container">
@@ -6,7 +6,8 @@ const PageHeading = (props) => {
           <div className="col-xs-12 text-block">
             <h1 className="page-title">{props.title}</h1>    
           </div>
-        </div>            
+        </div>  
+        {props.children}          
       </div>
     </div> 
   )
