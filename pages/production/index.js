@@ -9,8 +9,7 @@ const Production = () => {
   return (
     <div>
       <Head>
-        <title>О компании — СК «Бетогор»</title>
-        <meta name="description" content="" />        
+        <title>Продукция / Цены на бетон — СК «Бетогор»</title>           
       </Head>
       <header className="hero-section bg-primary">
         <Navbar />   
